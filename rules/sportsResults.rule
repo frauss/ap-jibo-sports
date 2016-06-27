@@ -1,0 +1,3 @@
+TopRule = $* (how did $team {ourTeam=team.name} do $when) $*;
+team @= (+$w){name = _parsed};
+when @= (last night|yesterday|today|on $date)
