@@ -5,7 +5,6 @@
         "name": "",
         "asset-pack": "core",
         "children": [
-            "21d7d18b-884e-417a-9fe8-092eb31b15fe",
             "c890741f-25f7-487e-b08a-20760a7f8b91"
         ],
         "decorators": [],
@@ -22,7 +21,6 @@
             "behaviorPath": "idle.bt",
             "getNotepad": [
                 "() => {",
-                "    return {};",
                 "}"
             ],
             "onResult": [
@@ -31,20 +29,10 @@
             ]
         },
         "asset-pack": "core",
-        "parent": "c890741f-25f7-487e-b08a-20760a7f8b91",
+        "parent": "923f7592-1bf3-4baa-b39f-090785888909",
         "decorators": [
             "eb079e6c-ff5d-4a7e-82c0-36c4e11fc9a1"
         ]
-    },
-    "6020d87f-2993-423f-a2c3-7886be7f8f46": {
-        "id": "6020d87f-2993-423f-a2c3-7886be7f8f46",
-        "class": "PlayAudio",
-        "name": "",
-        "options": {
-            "audioPath": "Meet the Mets - 1962.mp3"
-        },
-        "asset-pack": "core",
-        "parent": "868814b1-797b-478c-a40c-65ac18ca9c34"
     },
     "eb079e6c-ff5d-4a7e-82c0-36c4e11fc9a1": {
         "id": "eb079e6c-ff5d-4a7e-82c0-36c4e11fc9a1",
@@ -67,108 +55,14 @@
                 "(listener) => {",
                 "    listener.on('cloud', function(asrResult, speakerIds) {",
                 "      if (asrResult && asrResult.NLParse) {",
-                "        notepad.what = asrResult.NLParse.ourTeam;",
+                "        notepad.what = asrResult.NLParse;",
+                "        console.log(\"Speech succeed with result: \" + JSON.stringify(notepad.what));",
                 "      }",
                 "    });",
                 "}"
             ]
         },
         "asset-pack": "core"
-    },
-    "5948b532-8954-4660-a81e-8033d9f79f79": {
-        "id": "5948b532-8954-4660-a81e-8033d9f79f79",
-        "class": "Parallel",
-        "name": "",
-        "options": {
-            "succeedOnOne": false
-        },
-        "asset-pack": "core",
-        "parent": "a3a6a1f3-a78e-422a-8c16-8751dea25278",
-        "children": [
-            "eb254354-7fb3-420c-b485-c941602ba978",
-            "868814b1-797b-478c-a40c-65ac18ca9c34"
-        ]
-    },
-    "eb254354-7fb3-420c-b485-c941602ba978": {
-        "id": "eb254354-7fb3-420c-b485-c941602ba978",
-        "class": "PlayAnimation",
-        "name": "",
-        "options": {
-            "animPath": "heartbeat.keys",
-            "config": [
-                "(animation) => {",
-                "}"
-            ]
-        },
-        "asset-pack": "core",
-        "parent": "5948b532-8954-4660-a81e-8033d9f79f79"
-    },
-    "868814b1-797b-478c-a40c-65ac18ca9c34": {
-        "id": "868814b1-797b-478c-a40c-65ac18ca9c34",
-        "class": "Sequence",
-        "name": "",
-        "options": {},
-        "asset-pack": "core",
-        "parent": "5948b532-8954-4660-a81e-8033d9f79f79",
-        "children": [
-            "a5e288d0-e3e9-4f81-ae26-50eb5ad66fa8",
-            "6020d87f-2993-423f-a2c3-7886be7f8f46"
-        ]
-    },
-    "a5e288d0-e3e9-4f81-ae26-50eb5ad66fa8": {
-        "id": "a5e288d0-e3e9-4f81-ae26-50eb5ad66fa8",
-        "class": "TextToSpeech",
-        "name": "",
-        "options": {
-            "words": "The mets beat the pirates 6 to 5 in 11 innings",
-            "onWord": [
-                "(word) => {",
-                "}"
-            ]
-        },
-        "asset-pack": "core",
-        "parent": "868814b1-797b-478c-a40c-65ac18ca9c34"
-    },
-    "a3a6a1f3-a78e-422a-8c16-8751dea25278": {
-        "id": "a3a6a1f3-a78e-422a-8c16-8751dea25278",
-        "class": "Switch",
-        "name": "",
-        "options": {},
-        "asset-pack": "core",
-        "parent": "c890741f-25f7-487e-b08a-20760a7f8b91",
-        "decorators": [
-            "29ed4c90-1446-4166-9bf7-7b7c7b42d4e3"
-        ],
-        "children": [
-            "5948b532-8954-4660-a81e-8033d9f79f79"
-        ]
-    },
-    "29ed4c90-1446-4166-9bf7-7b7c7b42d4e3": {
-        "id": "29ed4c90-1446-4166-9bf7-7b7c7b42d4e3",
-        "class": "Case",
-        "name": "",
-        "options": {
-            "conditional": [
-                "() => {",
-                "  return notepad.what === \"the mets\";",
-                "}"
-            ]
-        },
-        "asset-pack": "core"
-    },
-    "21d7d18b-884e-417a-9fe8-092eb31b15fe": {
-        "id": "21d7d18b-884e-417a-9fe8-092eb31b15fe",
-        "class": "TextToSpeech",
-        "name": "",
-        "options": {
-            "words": "Hello World, nice to see you",
-            "onWord": [
-                "(word) => {",
-                "}"
-            ]
-        },
-        "asset-pack": "core",
-        "parent": 1
     },
     "c890741f-25f7-487e-b08a-20760a7f8b91": {
         "id": "c890741f-25f7-487e-b08a-20760a7f8b91",
@@ -181,8 +75,8 @@
             "79a09d92-acf3-4646-83c2-ccd99a6e9078"
         ],
         "children": [
-            "782d03d8-f73e-4e6e-bd9b-b78a61daaaf1",
-            "a3a6a1f3-a78e-422a-8c16-8751dea25278"
+            "923f7592-1bf3-4baa-b39f-090785888909",
+            "ce9084c4-515e-4aa1-a840-55d604075663"
         ]
     },
     "79a09d92-acf3-4646-83c2-ccd99a6e9078": {
@@ -201,5 +95,121 @@
             ]
         },
         "asset-pack": "core"
+    },
+    "923f7592-1bf3-4baa-b39f-090785888909": {
+        "id": "923f7592-1bf3-4baa-b39f-090785888909",
+        "class": "Parallel",
+        "name": "",
+        "options": {
+            "succeedOnOne": true
+        },
+        "asset-pack": "core",
+        "parent": "c890741f-25f7-487e-b08a-20760a7f8b91",
+        "children": [
+            "b8b13687-8dd3-40f2-b7fc-2b8b79d10662",
+            "782d03d8-f73e-4e6e-bd9b-b78a61daaaf1"
+        ]
+    },
+    "b8b13687-8dd3-40f2-b7fc-2b8b79d10662": {
+        "id": "b8b13687-8dd3-40f2-b7fc-2b8b79d10662",
+        "class": "Subtree",
+        "name": "idle",
+        "options": {
+            "behaviorPath": "idle.bt",
+            "getNotepad": [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            "onResult": [
+                "(treeResult) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "923f7592-1bf3-4baa-b39f-090785888909"
+    },
+    "b43fd5c0-b0da-41d2-9201-462957f354da": {
+        "id": "b43fd5c0-b0da-41d2-9201-462957f354da",
+        "class": "ExecuteScriptAsync",
+        "name": "",
+        "options": {
+            "exec": [
+                "(succeed, fail) => {",
+                "  var sportsAPI = require('../src/sportsAPI.js');",
+                "",
+                "  var ruleInfo = notepad.what;",
+                "  var methodInfo = {",
+                "    rule: ruleInfo.rule",
+                "  };",
+                "  switch (ruleInfo.rule) {",
+                "  case \"howdid\":",
+                "    methodInfo.method = sportsAPI.getGameResponse;    ",
+                "    methodInfo.team = ruleInfo[\"howdid.team.name\"];",
+                "    methodInfo.date = ruleInfo[\"howdid.date.date\"];",
+                "    break;",
+                "",
+                "  case \"whoplay\":",
+                "    methodInfo.method = sportsAPI.getGameResponse;",
+                "    methodInfo.team = ruleInfo[\"whoplay.team.name\"];",
+                "    methodInfo.date = ruleInfo[\"whoplay.date.date\"];",
+                "    break;",
+                "",
+                "  case \"didtheywin\":",
+                "    methodInfo.method = sportsAPI.getGameResponse;",
+                "    methodInfo.team = ruleInfo[\"didtheywin.team.name\"];",
+                "    methodInfo.date = ruleInfo[\"didtheywin.date.date\"];",
+                "    methodInfo.resultType = ruleInfo[\"didtheywin.resultType.resultType\"];",
+                "    break;",
+                "",
+                "  case \"whatplace\":",
+                "    methodInfo.method = sportsAPI.getStandingsResponse;",
+                "    methodInfo.team = ruleInfo[\"whatplace.team.name\"];",
+                "    break;",
+                "  }  ",
+                "  console.log(\"methodInfo = \" + JSON.stringify(methodInfo));",
+                "  methodInfo.method(methodInfo, function(response) {",
+                "    notepad.what.response = response;",
+                "    succeed(response);",
+                "  }, ",
+                "  function(err) {",
+                "    fail(err);",
+                "  });",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "ce9084c4-515e-4aa1-a840-55d604075663"
+    },
+    "d2360b83-eb5e-474a-826b-4935565c768a": {
+        "id": "d2360b83-eb5e-474a-826b-4935565c768a",
+        "class": "TextToSpeechJs",
+        "name": "",
+        "options": {
+            "getWords": [
+                "(callback) => {",
+                "  var responseText = notepad.what.response.responseText;",
+                "  callback(responseText);",
+                "}"
+            ],
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "ce9084c4-515e-4aa1-a840-55d604075663"
+    },
+    "ce9084c4-515e-4aa1-a840-55d604075663": {
+        "id": "ce9084c4-515e-4aa1-a840-55d604075663",
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": "c890741f-25f7-487e-b08a-20760a7f8b91",
+        "children": [
+            "b43fd5c0-b0da-41d2-9201-462957f354da",
+            "d2360b83-eb5e-474a-826b-4935565c768a"
+        ]
     }
 }
