@@ -2,9 +2,9 @@ TopRule = $* ($howdid {rule = 'howdid'} |
 $didtheywin {rule = 'didtheywin'} |
 $whoplay {rule = 'whoplay'} |
 $whatplace {rule = 'whatplace'}) $*;
-howdid @= (how | what) (did | is | are) $team (do | doing) $date {query = _parsed};
+howdid @= (how | what) (are | did | is) $team (do | doing) $date {query = _parsed};
 didtheywin @= did $team $resultType $date {query = _parsed};
-whoplay @= who (is | do | did | are) $team (play | playing) $date {query = _parsed};
+whoplay @= who (is | do | does | did | are) $team (play | playing) $date {query = _parsed};
 whatplace @= what place (is | are) $team in {query = _parsed};
 resultType @= (win | lose) {resultType = _parsed};
 team @= (+$w){name = _parsed};
