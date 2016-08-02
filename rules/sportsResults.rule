@@ -4,8 +4,8 @@ $whoplay {rule = 'whoplay'} |
 $whatplace {rule = 'whatplace'}) $*;
 howdid @= (how | what) (did | is | are) $team (do | doing) $date {query = _parsed};
 didtheywin @= did $team $resultType $date {query = _parsed};
-whoplay @= who (do | did | are) $team (play | playing) $date {query = _parsed};
-whatplace @= what place are $team in {query = _parsed};
+whoplay @= who (is | do | did | are) $team (play | playing) $date {query = _parsed};
+whatplace @= what place (is | are) $team in {query = _parsed};
 resultType @= (win | lose) {resultType = _parsed};
 team @= (+$w){name = _parsed};
 date @= (*$w){date = _parsed};

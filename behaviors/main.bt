@@ -76,7 +76,8 @@
         ],
         "children": [
             "923f7592-1bf3-4baa-b39f-090785888909",
-            "ce9084c4-515e-4aa1-a840-55d604075663"
+            "6f07dbac-ac9b-408e-a640-b75115bb9825",
+            "d2360b83-eb5e-474a-826b-4935565c768a"
         ]
     },
     "79a09d92-acf3-4646-83c2-ccd99a6e9078": {
@@ -172,14 +173,19 @@
                 "    notepad.what.response = response;",
                 "    succeed(response);",
                 "  }, ",
-                "  function(err) {",
+                "  function(err, response) {",
+                "    ",
+                "    // Special cases for no team or game found",
+                "    notepad.what.response = {",
+                "      responseText: \"I'm sorry but there was a problem looking up what you asked for.\"",
+                "    };",
                 "    fail(err);",
                 "  });",
                 "}"
             ]
         },
         "asset-pack": "core",
-        "parent": "ce9084c4-515e-4aa1-a840-55d604075663"
+        "parent": "6f07dbac-ac9b-408e-a640-b75115bb9825"
     },
     "d2360b83-eb5e-474a-826b-4935565c768a": {
         "id": "d2360b83-eb5e-474a-826b-4935565c768a",
@@ -188,7 +194,10 @@
         "options": {
             "getWords": [
                 "(callback) => {",
-                "  var responseText = notepad.what.response.responseText;",
+                "  var responseText;",
+                "  if (notepad.what.response) {",
+                "    responseText = notepad.what.response.responseText;",
+                "  }",
                 "  callback(responseText);",
                 "}"
             ],
@@ -198,18 +207,17 @@
             ]
         },
         "asset-pack": "core",
-        "parent": "ce9084c4-515e-4aa1-a840-55d604075663"
+        "parent": "c890741f-25f7-487e-b08a-20760a7f8b91"
     },
-    "ce9084c4-515e-4aa1-a840-55d604075663": {
-        "id": "ce9084c4-515e-4aa1-a840-55d604075663",
-        "class": "Sequence",
+    "6f07dbac-ac9b-408e-a640-b75115bb9825": {
+        "id": "6f07dbac-ac9b-408e-a640-b75115bb9825",
+        "class": "Switch",
         "name": "",
         "options": {},
         "asset-pack": "core",
         "parent": "c890741f-25f7-487e-b08a-20760a7f8b91",
         "children": [
-            "b43fd5c0-b0da-41d2-9201-462957f354da",
-            "d2360b83-eb5e-474a-826b-4935565c768a"
+            "b43fd5c0-b0da-41d2-9201-462957f354da"
         ]
     }
 }
