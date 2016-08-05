@@ -5,6 +5,7 @@
         "name": "",
         "asset-pack": "core",
         "children": [
+            "8f95ed83-0cca-493c-9cac-b6da24cc4d91",
             "c890741f-25f7-487e-b08a-20760a7f8b91"
         ],
         "decorators": [],
@@ -75,9 +76,10 @@
             "79a09d92-acf3-4646-83c2-ccd99a6e9078"
         ],
         "children": [
+            "bbc51c43-49b0-4ead-99e8-647b5b6bce60",
             "923f7592-1bf3-4baa-b39f-090785888909",
             "6f07dbac-ac9b-408e-a640-b75115bb9825",
-            "d2360b83-eb5e-474a-826b-4935565c768a"
+            "7b228931-dc7c-4a54-b2ab-8f9d49629093"
         ]
     },
     "79a09d92-acf3-4646-83c2-ccd99a6e9078": {
@@ -140,61 +142,62 @@
                 "  var sportsAPI = require('../src/sportsAPI.js');",
                 "",
                 "  var ruleInfo = notepad.what;",
-                "  if (ruleInfo.status === 'GOT-PARSE') {",
-                "    var methodInfo = {",
-                "      rule: ruleInfo.rule",
-                "    };",
-                "    switch (ruleInfo.rule) {",
-                "    case \"howdid\":",
-                "      methodInfo.method = sportsAPI.getGameResponse;    ",
-                "      methodInfo.team = ruleInfo[\"howdid.team.name\"];",
-                "      methodInfo.date = ruleInfo[\"howdid.date.date\"];",
-                "      break;",
+                "  var methodInfo = {",
+                "    rule: ruleInfo.rule",
+                "  };",
+                "  switch (ruleInfo.rule) {",
+                "  case \"howdid\":",
+                "    methodInfo.method = sportsAPI.getGameResponse;    ",
+                "    methodInfo.team = ruleInfo[\"howdid.team.name\"];",
+                "    methodInfo.date = ruleInfo[\"howdid.date.date\"];",
+                "    break;",
                 "",
-                "    case \"whoplay\":",
-                "      methodInfo.method = sportsAPI.getGameResponse;",
-                "      methodInfo.team = ruleInfo[\"whoplay.team.name\"];",
-                "      methodInfo.date = ruleInfo[\"whoplay.date.date\"];",
-                "      break;",
+                "  case \"whoplay\":",
+                "    methodInfo.method = sportsAPI.getGameResponse;",
+                "    methodInfo.team = ruleInfo[\"whoplay.team.name\"];",
+                "    methodInfo.date = ruleInfo[\"whoplay.date.date\"];",
+                "    break;",
                 "",
-                "    case \"didtheywin\":",
-                "      methodInfo.method = sportsAPI.getGameResponse;",
-                "      methodInfo.team = ruleInfo[\"didtheywin.team.name\"];",
-                "      methodInfo.date = ruleInfo[\"didtheywin.date.date\"];",
-                "      methodInfo.resultType = ruleInfo[\"didtheywin.resultType.resultType\"];",
-                "      break;",
+                "  case \"didtheywin\":",
+                "    methodInfo.method = sportsAPI.getGameResponse;",
+                "    methodInfo.team = ruleInfo[\"didtheywin.team.name\"];",
+                "    methodInfo.date = ruleInfo[\"didtheywin.date.date\"];",
+                "    methodInfo.resultType = ruleInfo[\"didtheywin.resultType.resultType\"];",
+                "    break;",
                 "",
-                "    case \"whatplace\":",
-                "      methodInfo.method = sportsAPI.getStandingsResponse;",
-                "      methodInfo.team = ruleInfo[\"whatplace.team.name\"];",
-                "      break;    ",
-                "    }  ",
+                "  case \"whatplace\":",
+                "    methodInfo.method = sportsAPI.getStandingsResponse;",
+                "    methodInfo.team = ruleInfo[\"whatplace.team.name\"];",
+                "    break;   ",
                 "    ",
-                "    methodInfo.method(methodInfo, function(response) {",
-                "      notepad.what.response = response;",
-                "      succeed(response);",
-                "    }, ",
-                "    function(err, response) {",
-                "      ",
-                "      // Special cases for no team or game found",
-                "      notepad.what.response = {",
-                "        responseText: \"I'm sorry but there was a problem looking up what you asked for.\"",
-                "      };",
-                "      fail(err);",
-                "    });",
-                "  }",
-                "  else {",
+                "  case \"whendo\":",
+                "    methodInfo.method = sportsAPI.findGameResponse;",
+                "    methodInfo.teams = [ ",
+                "      ruleInfo[\"whendo.team.name\"], ",
+                "      ruleInfo[\"whendo.team1.name\"]",
+                "    ];",
+                "  }  ",
+                "  ",
+                "  methodInfo.method(methodInfo, function(response) {",
+                "    notepad.what.response = response;",
+                "    succeed(response);",
+                "  }, ",
+                "  function(err, response) {",
+                "    ",
                 "    // Special cases for no team or game found",
                 "    notepad.what.response = {",
-                "      responseText: \"I'm sorry but I didn't understand what you asked for.\"",
+                "      responseText: \"I'm sorry but there was a problem looking up what you asked for.\"",
                 "    };",
-                "    fail(null);",
-                "  }",
+                "    fail(err);",
+                "  });",
                 "}"
             ]
         },
         "asset-pack": "core",
-        "parent": "6f07dbac-ac9b-408e-a640-b75115bb9825"
+        "parent": "6f07dbac-ac9b-408e-a640-b75115bb9825",
+        "decorators": [
+            "19374279-4d35-4370-bd40-8f747909e35c"
+        ]
     },
     "d2360b83-eb5e-474a-826b-4935565c768a": {
         "id": "d2360b83-eb5e-474a-826b-4935565c768a",
@@ -216,7 +219,10 @@
             ]
         },
         "asset-pack": "core",
-        "parent": "c890741f-25f7-487e-b08a-20760a7f8b91"
+        "parent": "7b228931-dc7c-4a54-b2ab-8f9d49629093",
+        "decorators": [
+            "65bc1a6f-3a6e-4b1c-bc27-655049f4229f"
+        ]
     },
     "6f07dbac-ac9b-408e-a640-b75115bb9825": {
         "id": "6f07dbac-ac9b-408e-a640-b75115bb9825",
@@ -228,5 +234,121 @@
         "children": [
             "b43fd5c0-b0da-41d2-9201-462957f354da"
         ]
+    },
+    "bbc51c43-49b0-4ead-99e8-647b5b6bce60": {
+        "id": "bbc51c43-49b0-4ead-99e8-647b5b6bce60",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  notepad = {};",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "c890741f-25f7-487e-b08a-20760a7f8b91"
+    },
+    "7b228931-dc7c-4a54-b2ab-8f9d49629093": {
+        "id": "7b228931-dc7c-4a54-b2ab-8f9d49629093",
+        "class": "Switch",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": "c890741f-25f7-487e-b08a-20760a7f8b91",
+        "children": [
+            "63d5706e-bdaf-4b7d-8408-46839559e3e1",
+            "d2360b83-eb5e-474a-826b-4935565c768a"
+        ]
+    },
+    "65bc1a6f-3a6e-4b1c-bc27-655049f4229f": {
+        "id": "65bc1a6f-3a6e-4b1c-bc27-655049f4229f",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  var ruleInfo = notepad.what;",
+                "  return (ruleInfo.status === 'GOT-PARSE');",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "19374279-4d35-4370-bd40-8f747909e35c": {
+        "id": "19374279-4d35-4370-bd40-8f747909e35c",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  var ruleInfo = notepad.what;",
+                "  return (ruleInfo.status === 'GOT-PARSE');",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "6673dacf-beac-4abf-ab2a-b8977609d8ab": {
+        "id": "6673dacf-beac-4abf-ab2a-b8977609d8ab",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "Hello and welcome to the The AP Jibo Baseball responder.",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "8f95ed83-0cca-493c-9cac-b6da24cc4d91"
+    },
+    "8f95ed83-0cca-493c-9cac-b6da24cc4d91": {
+        "id": "8f95ed83-0cca-493c-9cac-b6da24cc4d91",
+        "class": "Parallel",
+        "name": "",
+        "options": {
+            "succeedOnOne": false
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "children": [
+            "6673dacf-beac-4abf-ab2a-b8977609d8ab"
+        ]
+    },
+    "63d5706e-bdaf-4b7d-8408-46839559e3e1": {
+        "id": "63d5706e-bdaf-4b7d-8408-46839559e3e1",
+        "class": "TextToSpeechJs",
+        "name": "",
+        "options": {
+            "getWords": [
+                "(callback) => {",
+                "    callback('Sorry, I did not understand what you asked.');",
+                "}"
+            ],
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "7b228931-dc7c-4a54-b2ab-8f9d49629093",
+        "decorators": [
+            "ccfd5fcd-15b4-4281-8b72-49b4a77dc3dd"
+        ]
+    },
+    "ccfd5fcd-15b4-4281-8b72-49b4a77dc3dd": {
+        "id": "ccfd5fcd-15b4-4281-8b72-49b4a77dc3dd",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  var ruleInfo = notepad.what;",
+                "  return (ruleInfo.status !== 'GOT-PARSE');",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
     }
 }
